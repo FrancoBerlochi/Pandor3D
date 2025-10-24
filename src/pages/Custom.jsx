@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Custom = () => {
   const header = <Header></Header>;
 
+
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -15,12 +16,13 @@ const Custom = () => {
   });
 
   const handleChange = (e) => {
+    console.log(formData.archivos == "");
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleFileChange = (e) => {
-    setFormData({ ...formData, archivos: e.target.files });
+    setFormData({ ...formData, archivos: Array.from(e.target.files) });
   };
 
   const validateEmail = (email) => {
@@ -29,7 +31,8 @@ const Custom = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
+
     if (formData.nombre == "") {
       console.error("agregue un nombre");
       return;
@@ -130,40 +133,54 @@ const Custom = () => {
                   <label className="block font-semibold mb-1">
                     Subir Archivos (Opcional)
                   </label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-sky-400 transition">
+                  <div
+                    id="dropDiv"
+                    className="relative border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-sky-400 transition"
+                  >
                     <input
                       type="file"
                       multiple
                       onChange={handleFileChange}
                       accept=".stl,.obj,.png,.jpg"
-                      className="hidden"
+                      className="text-transparent absolute z-10 inset-0 cursor-pointer"
                       id="fileUpload"
                     />
-                    <label
-                      htmlFor="fileUpload"
-                      className="cursor-pointer flex flex-col items-center"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-10 h-10 mb-2 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12"
-                        />
-                      </svg>
-                      <p className="text-gray-500">
-                        Arrastrá tus archivos aquí o hacé click para seleccionar
-                      </p>
-                      <p className="text-sm text-gray-400">
-                        STL, OBJ, PNG, JPG (máx. 10MB)
-                      </p>
-                    </label>
+                    {formData.archivos == "" ? (
+                      <div className="cursor-pointer flex flex-col items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-10 h-10 mb-2 text-gray-400"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12"
+                          />
+                        </svg>
+                        <p className="text-gray-500">
+                          Arrastrá tus archivos aquí o hacé click para
+                          seleccionar
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          STL, OBJ, PNG, JPG (máx. 10MB)
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-3 gap-4">
+                        {formData.archivos.map((img, index) => (
+                          <img
+                            key={index}
+                            src={URL.createObjectURL(img)}
+                            alt={`img-${index}`}
+                            className="w-30 h-30"
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <button
