@@ -23,9 +23,30 @@ const Custom = () => {
     setFormData({ ...formData, archivos: e.target.files });
   };
 
-  const handleSubmit = (e) => {
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    if (formData.nombre == "") {
+      console.error("agregue un nombre");
+      return;
+    } else if (!validateEmail(formData.email)) {
+      console.error("email no valido");
+      return;
+    } else if (formData.telefono == "" || formData.telefono.length > 11) {
+      console.error("teléfono inválido");
+      return;
+    } else if (formData.cantidad <= 0) {
+      console.error("ponga una cantidad");
+      return;
+    } else if (formData.descripcion == "") {
+      console.error("agregue una descripción");
+      return;
+    }
+
     alert("Solicitud enviada ✅");
   };
 
@@ -38,7 +59,7 @@ const Custom = () => {
           <h2 className="text-xl text-gray-600">
             Contanos sobre tu proyecto y te ayudaremos a hacerlo realidad.
           </h2>
-          <div className="grid grid-cols-3 w-[60vw] mt-20">
+          <div className="grid grid-cols-3 w-[60vw] mt-15">
             <div className="col-span-2 border-1 border-gray-200 rounded-2xl mx-2 p-8 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -102,6 +123,7 @@ const Custom = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                    required
                   />
                 </div>
                 <div>
@@ -256,13 +278,21 @@ const Custom = () => {
                   Estamos disponibles para responder a cualquier consulta que
                   surga.
                 </p>
-                <button className="my-6 border-1 border-cyan-500 rounded-md w-60 text-cyan-500 py-2 cursor-pointer hover:bg-cyan-500 hover:text-white transition-colors duration-300">
+                <a
+                  href={`https://wa.me/telnumber?text=Prueba%20prueba`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center my-6 border-1 border-cyan-500 rounded-md w-60 text-cyan-500 py-2 hover:bg-cyan-500 hover:text-white transition-colors duration-300"
+                >
                   Contactar por WhatsApp
-                </button>
+                </a>
               </div>
             </div>
           </div>
-          <br /><br /><br /><br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </main>
     </div>
