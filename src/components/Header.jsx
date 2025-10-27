@@ -31,7 +31,7 @@ const Header = () => {
         </Link>
       </nav>
       <Link
-        to="contacto"
+        to="/contacto"
         className="mr-8 bg-cyan-500 text-white py-2 px-4 rounded-xl hover:opacity-90"
       >
         Contacto
