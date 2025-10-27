@@ -1,10 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductCard = ({ img, tittle, price }) => {
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(1)
+  const [order, setOrder] = useState(() => {
+    return JSON.parse(localStorage.getItem("products")) || [];
+  });
 
   const handleChange = (e) => {
-    setAmount(e.target.value)
+    setAmount(parseInt(e.target.value))
+  }
+  
+  useEffect(() => {
+      localStorage.setItem("products", JSON.stringify(order));
+  }, [order]);
+  
+  const orderStorage = () => {
+    const local = JSON.parse(localStorage.getItem("products")) || [];
+    setOrder([...local]);
+
+    const orderToStorage = {
+      img: img,
+      title: tittle,
+      price: price,
+      amount: amount
+    }
+
+    setOrder((prev) => {
+      const existing = prev.find((p) => p.title === tittle);
+      if (existing) {
+        return prev.map((p) =>
+          p.title === tittle ? { ...p, amount: p.amount + amount } : p
+        );
+      }
+
+      return [...prev, orderToStorage];
+    });
   }
 
   return (
@@ -27,8 +57,8 @@ const ProductCard = ({ img, tittle, price }) => {
         />
       </div>
       <div className="grid grid-cols-3 gap-4 mt-4">
-        <button className="col-span-2 bg-cyan-500 text-white rounded-2xl py-2 cursor-pointer hover:bg-white hover:text-cyan-500 hover:border-1 hover:border-cyan-500 transition-colors duration-300">
-          Agregar al carrito
+        <button className="col-span-2 bg-cyan-500 text-white rounded-2xl py-2 cursor-pointer hover:bg-white hover:text-cyan-500 hover:border-1 hover:border-cyan-500 transition-colors duration-300" onClick={orderStorage}>
+          Agregar Pedido
         </button>
         <button className="border-1 border-cyan-500 text-cyan-500 rounded-2xl py-2 cursor-pointer hover:bg-cyan-200 hover:text-cyan-700 transition-colors duration-300">
           Ver Detalles
