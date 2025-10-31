@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
     font-family: outfit;
     scroll-behavior: smooth;
 }
 
-
 body {
   padding: 0;
   margin: 0;
+}
+
+.no-scroll{
+  overflow: hidden;
 }
 
 a{
@@ -16,7 +21,7 @@ a{
 }
 
 .anchor:hover{
-  color: rgba(0, 0, 0, 0.709);
+  opacity: 0.8;
 }
 
 .anchor::after{
@@ -30,8 +35,26 @@ a{
   transition: 0.2s ease;
 }
 
+.dark .anchor::after{
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  border-bottom: 2px solid hsl(41, 95%, 50%);
+  transition: 0.2s ease;
+}
+
 .anchor:hover::after{
   width: 95%;
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pandor{
@@ -43,6 +66,10 @@ a{
 }
 
 .fadeIn{
+  animation: fadeIn 0.8s linear;
+}
+
+.moon:hover{
   animation: fadeIn 0.8s linear;
 }
 
