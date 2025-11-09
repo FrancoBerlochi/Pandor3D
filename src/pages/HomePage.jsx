@@ -111,16 +111,18 @@ const HomePage = () => {
   const { isDark } = useContext(ThemeContext);
   return (
     <div id="inicio" className="">
-        {header}
+      {header}
       <main className="dark:bg-[#333] pb-20 dark:fadeIn dark:transition-all dark:duration-100">
-        <section className="flex justify-between h-[100vh] items-center">
-          <div className="flex flex-col ml-60 h-[50%] justify-center mb-20 logo">
-            <h1 className="text-8xl font-semibold dark:text-white">PANDOR3D</h1>
-            <div className="w-120 border-l-4 border-[#5bacf6] pl-4 mt-4 dark:border-[hsl(41,98%,51%)]">
-              <h2 className="text-2xl font-semibold dark:text-white">
+        <section className="flex justify-between h-[100vh] items-center max-md:justify-center max-md:flex-col">
+          <div className="flex flex-col ml-60 h-[50%] justify-center mb-20 logo max-md:ml-0 max-md:mb-10">
+            <h1 className="text-8xl font-semibold dark:text-white max-md:text-6xl">
+              PANDOR3D
+            </h1>
+            <div className="w-120 border-l-4 border-[#5bacf6] pl-4 mt-4 dark:border-[hsl(41,98%,51%)] max-md:w-[90vw]">
+              <h2 className="text-2xl font-semibold dark:text-white max-md:text-xl">
                 Impresiones por stock y a pedido
               </h2>
-              <p className="mt-3 text-gray-700 text-xl dark:text-gray-300">
+              <p className="mt-3 text-gray-700 text-xl dark:text-gray-300 max-md:text-[1rem]">
                 Contáctame para poder tener esa impresión que deseas al alcance
                 de tu mano
               </p>
@@ -141,24 +143,28 @@ const HomePage = () => {
               </Link>
             </div>
           </div>
-          <div className="mr-60 mb-20 pandor dark:bg-orange-400 dark:rounded-[50%]">
-            <img src={isDark ? linke : git} alt="" />
+          <div className="mr-60 mb-20 lg:pandor dark:bg-orange-400 dark:rounded-[50%] max-md:mr-0">
+            <img
+              src={isDark ? linke : git}
+              alt=""
+              className="max-md:w-[40vw] max-md:h-[40vw ]"
+            />
           </div>
         </section>
         <section className="flex flex-col justify-center">
           <h2 className="text-4xl font-semibold mb-16 text-center dark:text-white">
             ¿Por qué elegir PANDOR3D?
           </h2>
-          <article className="flex justify-between mx-24 ">
+          <article className="flex justify-between mx-24 max-md:justify-center max-md:flex-col max-md:mx-0 max-md:items-center max-md:gap-20 ">
             {cardsToShow}
           </article>
         </section>
         <section className="border-2 border-blue-200 dark:border-[hsl(41,98%,70%)] rounded-xl mt-30 flex justify-center mx-auto w-[90vw] shadow-2xs">
           <div className=" flex flex-col justify-center items-center py-16">
-            <h2 className="text-4xl font-semibold dark:text-white">
+            <h2 className="text-4xl font-semibold dark:text-white max-md:text-2xl">
               ¿Tenés un diseño en mente?
             </h2>
-            <p className="text-gray-600 text-xl mt-8 dark:text-gray-300">
+            <p className="text-gray-600 text-xl mt-8 dark:text-gray-300 max-md:text-[1.1rem] max-md:text-center">
               Convertimos tus ideas en realidad. Contactanos y hablemos sobre tu
               proyecto personalizado.
             </p>
@@ -173,39 +179,46 @@ const HomePage = () => {
         </section>
       </main>
       <footer className="w-full dark:bg-[#333]">
-        <div className="border-1 border-gray-300 flex gap-20 py-12 justify-around pr-100 dark:border-gray-300">
-          <div className="flex flex-col">
-            <h3 className="text-xl font-semibold dark:text-white">PANDOR3D</h3>
-            <p className="text-gray-600 dark:text-gray-300">
+        <div className="border-1 border-gray-300 flex gap-20 py-12 justify-around pr-100 dark:border-gray-300 max-md:pr-0 max-md:gap-10 max-md:w-full max-md:flex-col ">
+          <div className="flex flex-col max-md:ml-4">
+            <h3 className="text-xl font-semibold dark:text-white max-md:text-[1.1rem]">
+              PANDOR3D
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 max-md:text-[1rem]">
               impresiones 3D de calidad para dar vida a tus diseños
             </p>
           </div>
-          <div className="flex flex-col">
-            <h3 className="font-semibold dark:text-white">Enlaces</h3>
+          <div className="flex flex-col max-md:ml-4">
+            <h3 className="font-semibold dark:text-white max-md:text-[1.1rem]">
+              Enlaces
+            </h3>
             <Link
               onClick={topCero}
               to="/productos"
-              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)]"
+              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)] max-md:text-[1rem]"
             >
               Productos
             </Link>
             <Link
               onClick={topCero}
               to="/personalizar"
-              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)]"
+              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)] max-md:text-[1rem]"
             >
               Personalizar
             </Link>
             <Link
               onClick={topCero}
               to="/contacto"
-              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)]"
+              className="text-gray-600 hover:text-cyan-500 hover:opacity-70 dark:text-gray-300 dark:hover:text-[hsl(41,98%,70%)] max-md:text-[1rem]"
             >
               Contacto
             </Link>
           </div>
-          <div className="flex flex-col">
-            <h3 className="font-semibold dark:text-white">Contacto</h3>
+          <hr className="max-md:block hidden w-[90vw] mx-auto border-[hsl(41,98%,51%)]" />
+          <div className="flex flex-col max-md:text-center">
+            <h3 className="font-semibold dark:text-white max-md:text-[1.1rem]">
+              Contacto
+            </h3>
             <p className="text-gray-600 dark:text-gray-300">
               Email: pandor3d@gmail.com
             </p>
@@ -214,9 +227,15 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        <p className="text-center mt-6 text-gray-700 dark:text-gray-300">
-          © 2025 PANDOR3D. Todos los derechos reservados.
-        </p>
+        <div className="flex justify-around">
+          <p className="text-center my-6 text-gray-700 dark:text-gray-300 max-md:text-sm">
+            © 2025 PANDOR3D. Todos los derechos reservados.
+          </p>
+          <p className="text-center my-6 text-gray-700 dark:text-gray-300 max-md:text-sm">
+            Desarrollado por{" "}
+            <span className="dark:text-[hsl(41,98%,51%)]">Franco Berlochi</span>
+          </p>
+        </div>
       </footer>
     </div>
   );

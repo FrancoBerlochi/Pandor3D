@@ -17,12 +17,12 @@ const ViewDetails = () => {
       onClick={handleOpen}
     >
       <div
-        className="flex border-2 bg-[#def] dark:bg-[#555] w-[60vw] h-[70vh]"
+        className="flex border-2 bg-[#def] dark:bg-[#555] w-[60vw] h-[60vh]"
         onClick={(e) => e.stopPropagation()}
       >
         <img
           src={data.img}
-          className="w-[30vw] h-full bg-white"
+          className="w-[30vw] bg-white"
           alt="producto"
         />
         <div className="flex flex-col mt-20 ml-20 mr-20 dark:text-white">

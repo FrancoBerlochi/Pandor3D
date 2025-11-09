@@ -25,7 +25,8 @@ const ProductCard = ({index, img, tittle, size}) => {
     setData({ ...data, img: img, title: tittle, size: size, amount: amount });
   }
     
-  
+
+
   useEffect(() => {
       localStorage.setItem("products", JSON.stringify(order));
   }, [order]);

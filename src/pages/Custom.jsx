@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { useState, useContext } from "react";
+import { useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import OrderSummaryCard from "../components/OrderSummaryCard";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ const Custom = () => {
   const orderSummaryCard = <OrderSummaryCard></OrderSummaryCard>;
   const cloudName = "dggothnbr";
   const uploadPreset = "sergio";
+
   const [loading, setLoading] = useState(false) 
   const {isDark} = useContext(ThemeContext)
   const [errors, setErrors] = useState({
@@ -28,6 +29,7 @@ const Custom = () => {
     descripcion: "",
     archivos: [],
   });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

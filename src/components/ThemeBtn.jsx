@@ -13,9 +13,9 @@ const ThemeBtn = () => {
       onClick={handleTheme}
     >
       {isDark ? (
-        <Sun size={30} className="text-cyan-500 hover:opacity-55 hover:animate-spin" />
+        <Sun size={40} className="text-cyan-500 hover:opacity-55 hover:animate-spin" />
       ) : (
-        <Moon size={30} className="text-orange-500 moon" />
+        <Moon size={40}className="text-orange-500 moon" />
       )}
     </div>
   );

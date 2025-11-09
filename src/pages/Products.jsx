@@ -8,7 +8,7 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      img: "src/assets/github.png",
+      img: "src/assets/rex.jpg",
       tittle: "T-Rex esqueleto",
       size: "20 x 50",
     },
