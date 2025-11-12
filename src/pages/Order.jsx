@@ -25,12 +25,11 @@ const Order = () => {
     const msg = orderList
       .map(
         (p, i) =>
-          `${i + 1}. ${p.title} - Cantidad: ${p.amount} - Tamaño: $${p.size}`
+          `${i + 1}. ${p.title} - Cantidad: ${p.amount} - Tamaño: CM${p.size}`
       )
       .join("%0A");
 
-    const txt = `*Pedido desde la web* %0A%0A${msg}%0A%0A
-    )}`;
+    const txt = `*Pedido desde la web* %0A%0A${msg}%0A%0A`;
 
     window.open(`https://wa.me/5493402524738?text=${txt}`);
   };

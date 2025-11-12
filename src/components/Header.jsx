@@ -54,7 +54,7 @@ const Header = () => {
       <nav
         className={`flex ${
           menu ? "max-md:h-screen" : "max-md:h-0 max-md:w-0 lg:hidden"
-        } z-30 absolute bg-[#d6f3fb] text-blue-400 dark:text-white dark:bg-[#333] translate-y-[45vh] w-screen items-center flex-col justify-center text-6xl gap-16 transition-all duration-300 pb-6`}
+        } z-30 absolute bg-[#c7ecf7] text-blue-800 dark:text-white dark:bg-[#333] translate-y-[45vh] w-screen items-center flex-col justify-center text-6xl gap-16 transition-all duration-300 pb-6`}
         onClick={(e) => e.stopPropagation()}
       >
         <button

@@ -84,13 +84,15 @@ const Products = () => {
     <div id="inicio">
       {header}
       <main className="dark:bg-[#333] pb-20">
-        <div className="flex flex-col pt-32 ml-12">
-          <h1 className="text-6xl mb-4 dark:text-white">Nuestros Productos</h1>
-          <h2 className="text-xl text-gray-600 mb-16 dark:text-gray-300">
+        <div className="flex flex-col pt-32 ml-12 max-md:w-[90vw] max-md:mx-auto">
+          <h1 className="text-6xl mb-4 dark:text-white max-md:ml-3">
+            Nuestros Productos
+          </h1>
+          <h2 className="text-xl text-gray-600 mb-16 dark:text-gray-300 max-md:w-fit max-md:text-[1.4rem] max-md:ml-3">
             Explorá nuestra colección de impresiones 3D
           </h2>
         </div>
-        <div className="grid grid-cols-3 gap-4 mx-12">
+        <div className="grid grid-cols-3 gap-4 mx-12 max-md:grid-cols-1 max-md:mx-0">
           {products.slice(0, count).map((prod) => (
             <ProductCard
               key={prod.id}
@@ -113,10 +115,10 @@ const Products = () => {
         )}
         <section className="border-2 border-blue-200 dark:border-[hsl(41,98%,71%)] dark:text-white rounded-xl mt-40 flex justify-center mx-auto w-[90vw] shadow-2xs">
           <div className=" flex flex-col justify-center items-center py-16">
-            <h2 className="text-4xl font-semibold">
+            <h2 className="text-4xl font-semibold max-md:text-[1.4rem]">
               ¿No encontrás lo que buscás?
             </h2>
-            <p className="text-gray-600 text-xl mt-8 w-220 text-center dark:text-gray-300">
+            <p className="text-gray-600 text-xl mt-8 w-220 text-center dark:text-gray-300 max-md:text-[1rem] max-md:w-fit">
               Podemos imprimir cualquier diseño que tengas en mente. Contactanos
               para un presupuesto personalizado
             </p>
