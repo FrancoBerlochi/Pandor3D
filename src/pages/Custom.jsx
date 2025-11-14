@@ -33,7 +33,24 @@ const Custom = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+     if (name === "telefono") {
+       setForm((prev) => {
+         const prevValue = prev.telefono;
+
+         if (value.length < prevValue.length) {
+           return { ...prev, telefono: value };
+         }
+
+         if (value.length === 3 && !value.includes("-")) {
+           return { ...prev, telefono: value + "-" };
+         }
+
+         return { ...prev, telefono: value };
+       });
+     } else {
+       setForm((prev) => ({ ...prev, [name]: value }));
+     }
+
     setErrors({...errors,
       nombre: false,
       email: false,
@@ -147,15 +164,15 @@ const Custom = () => {
   return (
     <div id="inicio" className="dark:bg-[#333]">
       {header}
-      <main className="flex flex-col pt-35 mx-auto w-[60vw] ">
-        <h1 className="text-6xl font-semibold dark:text-white">
+      <main className="flex flex-col pt-35 mx-auto w-[60vw] max-md:items-center">
+        <h1 className="text-6xl font-semibold dark:text-white max-md:text-5xl max-md:mb-2">
           Pesonalizar Pedido
         </h1>
         <h2 className="text-xl text-gray-600 dark:text-gray-300">
           Contanos sobre tu proyecto y te ayudaremos a hacerlo realidad.
         </h2>
-        <div className="grid grid-cols-3 w-[60vw] mt-15">
-          <div className="col-span-2 border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 p-8 shadow-xl">
+        <div className="grid grid-cols-3 w-[60vw] mt-15 max-md:grid-cols-1 max-md:w-[95vw]">
+          <div className="col-span-2 border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 p-8 shadow-xl max-md:mb-8 max-md:order-2">
             <form onSubmit={handleSubmit} className="space-y-6 dark:text-white">
               <div>
                 <label className="block font-semibold mb-1">
@@ -197,7 +214,8 @@ const Custom = () => {
                   <input
                     type="tel"
                     name="telefono"
-                    placeholder="+54 9 11 12345678"
+                    placeholder="341-1234567"
+                    pattern="[0-9]{3}-[0-9]{7}"
                     value={form.telefono}
                     onChange={handleChange}
                     className={

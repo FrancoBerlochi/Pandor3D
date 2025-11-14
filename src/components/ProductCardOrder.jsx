@@ -69,7 +69,7 @@ const ProductCardOrder = ({ img, title, size, amount, refresh }) => {
           {size} cm
         </p>
         <div className="flex gap-4 items-center">
-          <p className="dark:text-white">{amount}</p>
+          <p className="dark:text-white text-xl">{amount}</p>
           <button
             onClick={handleDeleteModal}
             className="flex gap-2 py-2 px-4 text-red-400 hover:text-red-600 cursor-pointer"

@@ -37,11 +37,15 @@ const Order = () => {
   return (
     <div id="inicio" className="dark:bg-[#333]">
       {header}
-      <main className="flex flex-col pt-28 h-screen w-[60vw] mx-auto">
-        <h1 className="text-6xl font-semibold dark:text-white">Pedidos</h1>
-        <h3 className="text-gray-600 dark:text-gray-300">productos pedidos</h3>
-        <section className="grid grid-cols-3 mt-10">
-          <div className="col-span-2">
+      <main className="flex flex-col pt-28 h-screen w-[60vw] mx-auto max-md:mx-0 max-md:h-fit">
+        <h1 className="text-6xl font-semibold dark:text-white max-md:ml-16 max-md:w-fit">
+          Pedidos
+        </h1>
+        <h3 className="text-gray-600 dark:text-gray-300 max-md:ml-18 max-md:w-40">
+          productos pedidos
+        </h3>
+        <section className="grid grid-cols-3 mt-10 max-md:grid-cols-1 max-md:w-[100vw] ">
+          <div className="col-span-2 max-md:order-1 max-md:mb-12 max-md:w-[98vw]">
             {orderList == "" ? (
               <div className="">
                 <p className="text-4xl text-[#5bacf6] mb-6 dark:text-[hsl(41,98%,51%)]">
@@ -71,7 +75,7 @@ const Order = () => {
                     ></ProductCardOrder>
                   ))}
                 </div>
-                <div className="mt-6">
+                <div className="mt-6 max-md:flex max-md:justify-center">
                   <button
                     onClick={sendMsg}
                     className=" border-1 border-cyan-500 rounded-2xl p-4 bg-cyan-500 dark:border-[hsl(41,98%,51%)] dark:bg-[hsl(41,98%,51%)] dark:hover:bg-[hsl(41,98%,41%)] text-white hover:bg-cyan-600 cursor-pointer"

@@ -1,7 +1,7 @@
 const OrderSummaryCard = () => {
   return (
-    <div className=" flex flex-col">
-      <div className="flex flex-col border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 shadow-xl">
+    <div className=" flex flex-col max-md:mb-8 max-md:order-1 max-md:">
+      <div className="flex flex-col border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 shadow-xl ">
         <h3 className="text-xl font-semibold mt-4 ml-4 dark:text-white">
           Proceso de Pedido
         </h3>
@@ -47,7 +47,9 @@ const OrderSummaryCard = () => {
             </svg>
             <div className="flex flex-col">
               <p className="font-semibold">2. Recibí el presupuesto</p>
-              <p className="text-gray-600 dark:text-gray-400">Te contactamos en 24-48hs</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                Te contactamos en 24-48hs
+              </p>
             </div>
           </li>
           <li className="flex mb-6 gap-3">
@@ -68,7 +70,9 @@ const OrderSummaryCard = () => {
             </svg>
             <div className="flex flex-col">
               <p className="font-semibold">3. Confirmá el pedido</p>
-              <p className="text-gray-600 dark:text-gray-400">Aprobá el diseño y precio</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                Aprobá el diseño y precio
+              </p>
             </div>
           </li>
           <li className="flex gap-3">
@@ -89,7 +93,9 @@ const OrderSummaryCard = () => {
             </svg>
             <div className="flex flex-col">
               <p className="font-semibold">4. Recibí tu producto</p>
-              <p className="text-gray-600 dark:text-gray-400">Entrega en 5-10 días hábiles</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                Entrega en 5-10 días hábiles
+              </p>
             </div>
           </li>
         </ul>
