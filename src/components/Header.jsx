@@ -59,7 +59,9 @@ const Header = () => {
       >
         <button
           className={`${
-            menu ? "max-md:h-fit max-md:translate-x-[40vw] max-md:translate-[-10vw]" : "max-md:h-0"
+            menu
+              ? "max-md:h-fit max-md:translate-x-[40vw] max-md:translate-[5vw]"
+              : "max-md:h-0"
           } transition-all duration-300`}
           onClick={handleMenu}
         >
@@ -74,9 +76,7 @@ const Header = () => {
             stroke-linecap="round"
             stroke-linejoin="round"
             class={`${
-              menu
-                ? "max-md:h-fit "
-                : "max-md:h-0 "
+              menu ? "max-md:h-fit " : "max-md:h-0 "
             } transition-all duration-300`}
           >
             <path d="M4 5h16" />
@@ -127,6 +127,17 @@ const Header = () => {
           } transition-all duration-300`}
         >
           Pedidos
+        </Link>
+        <Link
+          to="/contacto"
+          onClick={topCero}
+          className={`${
+            menu
+              ? "max-md:h-fit max-md:text-6xl"
+              : "max-md:h-0 max-md:text-[0px]"
+          } transition-all duration-300`}
+        >
+          Contacto
         </Link>
         {menu && themeBtn}
       </nav>

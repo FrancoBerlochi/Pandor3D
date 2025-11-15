@@ -88,14 +88,14 @@ const Contact = () => {
   return (
     <div id="inicio" className="flex justify-center dark:bg-[#333]">
       {header}
-      <main className="pt-32 flex flex-col items-center h-screen w-[60vw]">
+      <main className="pt-32 flex flex-col items-center h-screen w-[60vw] max-md:w-[100vw] max-md:h-fit">
         <h1 className="text-7xl font-semibold dark:text-white">Contacto</h1>
-        <h2 className="text-xl text-gray-600 mt-4 dark:text-gray-300">
+        <h2 className="text-xl text-gray-600 mt-4 dark:text-gray-300 max-md:w-70 ">
           Estamos acá para ayudarte. Envianos tu consulta y te responderemos a
           la brevedad
         </h2>
-        <section className="grid grid-cols-3 w-[50vw] mt-16 gap-8">
-          <div className="col-span-2 border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 p-8 shadow-xl w-full ">
+        <section className="grid grid-cols-3 w-[50vw] mt-16 gap-8 max-md:grid-cols-1 max-md:w-[98vw]">
+          <div className="col-span-2 border-2 border-gray-200 dark:border-[#111] rounded-2xl mx-2 p-8 shadow-xl w-full max-md:mx-0">
             <form onSubmit={handleSubmit} className="space-y-6 dark:text-white">
               <div>
                 <label className="block font-semibold mb-1">
@@ -186,7 +186,7 @@ const Contact = () => {
               </button>
             </form>
           </div>
-          <div className="flex flex-col ">
+          <div className="flex flex-col max-md:w-[98vw] max-md:mr-[1vw] max-md:mb-6">
             <div className="shadow-xl rounded-2xl h-60 border-2 border-gray-200 dark:border-[#111]">
               <ul className="pl-10 mt-8 mb-16">
                 <li className="flex gap-4 mb-4">
@@ -273,15 +273,21 @@ const Contact = () => {
                 </h3>
                 <div className="flex flex-col mb-8 gap-2">
                   <div className="flex justify-between">
-                    <p className="text-gray-600 text-sm dark:text-gray-100">Lunes - Viernes</p>
+                    <p className="text-gray-600 text-sm dark:text-gray-100">
+                      Lunes - Viernes
+                    </p>
                     <p className="text-sm dark:text-gray-100">9:00 - 18:00</p>
                   </div>
                   <div className="flex justify-between">
-                    <p className="text-gray-600 text-sm dark:text-gray-100">Sábados</p>
+                    <p className="text-gray-600 text-sm dark:text-gray-100">
+                      Sábados
+                    </p>
                     <p className="text-sm dark:text-gray-100">3:00 - 6:00</p>
                   </div>
                   <div className="flex justify-between">
-                    <p className="text-gray-600 text-sm dark:text-gray-100">Domingos</p>
+                    <p className="text-gray-600 text-sm dark:text-gray-100">
+                      Domingos
+                    </p>
                     <p className="text-sm dark:text-gray-100">13:00 - 16:00</p>
                   </div>
                 </div>
